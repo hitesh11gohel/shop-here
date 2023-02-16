@@ -11,12 +11,12 @@ function App() {
       <Switch>
         <Route
           exact
-          path="/"
+          path="/login"
           render={() =>
             localStorage.getItem("LocalToken") ? <Drawer /> : <Login />
           }
         />
-        <Route exact path="/dashboard" component={Drawer} />
+        <Route exact path="/" component={Drawer} />
         <Route exact path="/product/:id" component={Product} />
         <Route exact path="/cart" component={Cart} />
       </Switch>

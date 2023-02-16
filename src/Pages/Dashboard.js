@@ -27,7 +27,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     if (!localStorage.getItem("LoginToken")) {
-      this.props.history.push("/");
+      this.props.history.push("/login");
     }
     if (!localStorage.getItem("AllProducts")) {
       axios

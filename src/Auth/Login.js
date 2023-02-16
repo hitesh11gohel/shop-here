@@ -18,6 +18,7 @@ class Login extends Component {
         email: "kate@gmail.com",
         password: "kfejk@*_",
       },
+      disable: true,
       error: "",
     };
     this.handleChange = this.handleChange.bind(this);
@@ -33,9 +34,12 @@ class Login extends Component {
       url: "https://fakestoreapi.com/users",
     })
       .then((result) => {
-        this.setState({ api: result.data });
+        this.setState({ api: result.data, disable: false });
       })
-      .catch((err) => console.log("Error :", err));
+      .catch((err) => {
+        console.log("Error :", err);
+        this.setState({ disable: false });
+      });
   }
 
   handleChange(e) {
@@ -60,7 +64,7 @@ class Login extends Component {
       tokenLogin[0] === this.state.login.email &&
       tokenPassword[0] === this.state.login.password
     ) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/");
       localStorage.setItem("LoginToken", JSON.stringify(this.state.login));
     } else {
       this.setState({ error: "Authantication Failed" });
@@ -109,7 +113,12 @@ class Login extends Component {
               <Button
                 type="submit"
                 variant="contained"
-                className="my-3 bg-dark text-light"
+                className={`my-3 ${
+                  this.state.disable
+                    ? "bg-secondary text-light"
+                    : "bg-dark text-light"
+                }`}
+                disabled={this.state.disable}
               >
                 Login
               </Button>
