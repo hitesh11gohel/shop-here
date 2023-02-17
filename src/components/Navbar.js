@@ -14,7 +14,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { connect } from "react-redux";
 class Navbar extends Component {
   render() {
-    const CartItemsWithQty = this.props.items.map((q) => q.quantity)
+    const CartItemsWithQty = this.props.items.map((q) => q.quantity);
     let totalItems = 0;
     for (let i = 0; i < CartItemsWithQty.length; i++) {
       totalItems = totalItems + CartItemsWithQty[i];
@@ -23,10 +23,12 @@ class Navbar extends Component {
       <AppBar position="static" id="navbar" className="bg-dark">
         <Toolbar color="secondary">
           <Box sx={{ flexGrow: 1 }}>
-            <Link style={{ color: "inherit" }} to="/dashboard">
+            <Link style={{ color: "inherit" }} to="/">
               <IconButton edge="start" color="inherit" aria-label="menu">
                 <LineWeightIcon />
-                <span className="mx-3 drawer-header-text">HOUSE Of HERRY</span>
+                <span className="mx-3 drawer-header-text navbar-title">
+                  SHOP HERE
+                </span>
               </IconButton>
             </Link>
           </Box>

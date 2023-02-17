@@ -28,7 +28,7 @@ class CardComponent extends Component {
       <>
         <Link
           className="my-2 btn btn-light"
-          to="/dashboard"
+          to="/"
           style={{ position: "relative", top: "15px", left: "50px" }}
         >
           <KeyboardBackspaceIcon />

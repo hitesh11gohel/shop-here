@@ -63,13 +63,12 @@ class Product extends Component {
             <Grid container className="product-container">
               <Grid item lg={1} />
               <Grid item lg={4} className="product-grid">
-                <Box className="hover14 product-image">
+                <Box className="hover14 product-image" textAlign={"center"}>
                   <figure>
                     <img
-                      className="product-image"
-                      style={{ width: "350px" }}
-                      src={item.image}
-                      alt={item.title}
+                      className="product-image product-image-tag"
+                      src={item?.image}
+                      alt={item?.title}
                     />
                   </figure>
                 </Box>
@@ -78,18 +77,18 @@ class Product extends Component {
 
               <Grid item lg={4} className="product-grid">
                 <Box>
-                  <Typography className="my-3" variant="h4">
-                    {item.title}
+                  <Typography className="my-3 product-title" variant="h4">
+                    {item?.title}
                   </Typography>
                   <Typography className="my-3" variant="body2">
-                    {item.description}
+                    {item?.description}
                   </Typography>
                   <Typography
                     className="my-3 text-capitalize"
                     variant="h6"
                     color="primary"
                   >
-                    {item.category}
+                    {item?.category}
                   </Typography>
                   <Box className="d-flex align-items-center justify-content-between">
                     <Typography variant="h6">Add Quantity :</Typography>
@@ -117,7 +116,7 @@ class Product extends Component {
                     </Box>
                   </Box>
                   <Typography className="my-3" variant="h4">
-                    $. {item.price}
+                    $. {item?.price}
                   </Typography>
                   <hr />
                   <Box className="check">

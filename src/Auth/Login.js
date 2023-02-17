@@ -27,7 +27,7 @@ class Login extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("LoginToken")) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/");
     }
     axios({
       method: "GET",

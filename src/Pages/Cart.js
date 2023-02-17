@@ -63,25 +63,31 @@ class Cart extends Component {
           <div>
             <NavBar />
             <button
-              className="btn btn-light link-arrow-back"
+              className="btn btn-light link-arrow-back border"
               onClick={() => this.props.history.goBack()}
             >
               <ArrowBackIosIcon /> Continue Shopping
             </button>
             <div className="container-fluid table-div">
-              <h4 className="float-end mb-3 totalPrice ">
+              <h4 className="float-end my-3 totalPrice ">
                 <span className="text-muted">Total :</span> ${" "}
                 {totalPrice.toFixed(2)}
               </h4>
               <table className="table table-hover table-container">
                 <thead className="table-dark">
-                  <tr className="text-center">
+                  <tr className="text-center" style={{ fontSize: "12px" }}>
                     <th scope="col"></th>
-                    <th scope="col">#</th>
-                    <th scope="col">Product Title</th>
-                    <th scope="col">Product Image</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
+                    <th scope="col" className="hide-on-mobile">
+                      #
+                    </th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Image</th>
+                    <th scope="col" className="hide-on-mobile">
+                      Price
+                    </th>
+                    <th scope="col" className="hide-on-mobile">
+                      Quantity
+                    </th>
                     <th scope="col">Total</th>
                   </tr>
                 </thead>
@@ -97,20 +103,21 @@ class Cart extends Component {
                             <ClearIcon />
                           </button>
                         </td>
-                        <td>{item.id}</td>
+                        <td className="hide-on-mobile">{item.id}</td>
                         <td
                           onClick={() =>
                             this.props.history.push(`/product/${item.id}`)
                           }
+                          className="mobile-fonts"
                         >
                           {item.title}
                         </td>
                         <td>
                           <img src={item.image} alt="..." width="50px" />
                         </td>
-                        <td>$. {item.price}</td>
+                        <td className="hide-on-mobile">$. {item.price}</td>
 
-                        <td>
+                        <td className="hide-on-mobile">
                           <Box className="d-flex justify-content-center align-items-center">
                             <button
                               className="btn btn-sm border-dark"
@@ -144,7 +151,7 @@ class Cart extends Component {
             <hr />
           </div>
         ) : (
-          <div className="text-center my-3">
+          <div className="text-center my-3 mt-5">
             <img
               src={emptyBasket}
               alt="empty-baskey"
@@ -154,7 +161,7 @@ class Cart extends Component {
               }}
               width="50%"
             />
-            <Link className="btn btn-dark my-3" to="/dashboard">
+            <Link className="btn btn-dark my-3" to="/">
               <HomeIcon />
               <span className="mx-2">Continue Shoping</span>
             </Link>
@@ -176,4 +183,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart));
